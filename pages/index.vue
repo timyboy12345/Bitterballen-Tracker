@@ -2,20 +2,20 @@
   <div>
     <div class="my-20">
       <h1 class="text-4xl font-bold">Bitterballen</h1>
-      <h2 class="text-2xl text-gray-600 max-w-[50%]">Bekijk op welke terrassen je in jouw buurt de lekkerste
+      <h2 class="text-2xl text-gray-600 xl:max-w-[50%]">Bekijk op welke terrassen je in jouw buurt de lekkerste
         bitterballen kan eten</h2>
     </div>
 
     <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 my-8">
       <div v-for="image of images" class="rounded overflow-hidden h-60">
-        <img :src="image" alt="Sfeerbeeld" class="w-full h-full">
+        <img :src="image" alt="Sfeerbeeld" class="w-full h-full object-cover object-center">
       </div>
     </div>
 
     <div class="grid lg:grid-cols-2 gap-4 my-8">
       <div>
-        <div class="text-lg text-yellow-900 font-bold">Waar kan ik het beste bitterballen eten?</div>
-        <p class="text-gray-600 text-sm">
+        <h2 class="text-lg text-yellow-900 font-bold">Waar kan ik het beste bitterballen eten?</h2>
+        <p class="text-gray-800 text-sm">
           De perfecte plek om bitterballen te eten kan lastig te vinden zijn, vandaar dat we je met deze site proberen
           te helpen. Bekijk welke snacks je waar kan eten, wat wij er van vinden en waar je de beste
           prijs/kwaliteitsverhouding kan vinden.
@@ -23,23 +23,25 @@
       </div>
 
       <div>
-        <div class="text-lg text-yellow-900 font-bold">Wat maakt een bitterbal dé bitterbal?</div>
-        <p class="text-gray-600 text-sm">
+        <h2 class="text-lg text-yellow-900 font-bold">Wat maakt een bitterbal dé bitterbal?</h2>
+        <p class="text-gray-800 text-sm">
           Niet elke bitterbal is hetzelfde. Sommige zijn te zacht, andere te hard, anderen hebben bijna geen vulling.
           Een perfecte bitterbal weet alle aspecten van de bitterbal in een perfecte verhouding te brengen.
         </p>
       </div>
 
       <div>
-        <div class="text-lg text-yellow-900 font-bold">Wat maakt een bitterbal dé bitterbal?</div>
-        <p class="text-gray-600 text-sm">
+        <h2 class="text-lg text-yellow-900 font-bold">Wat maakt een bitterbal dé bitterbal?</h2>
+        <p class="text-gray-800 text-sm">
           Niet elke bitterbal is hetzelfde. Sommige zijn te zacht, andere te hard, anderen hebben bijna geen vulling.
           Een perfecte bitterbal weet alle aspecten van de bitterbal in een perfecte verhouding te brengen.
         </p>
       </div>
     </div>
 
-    <CitiesList v-if="cities" :cities="cities" />
+    <h2 class="text-lg text-yellow-900 font-bold">Steden</h2>
+    <h3 class="text-sm text-gray-600">Klik hieronder op een stad om meer over de bittergarnituurcultuur van die specifieke stad te weten te komen.</h3>
+    <CitiesList class="mt-2" v-if="cities" :cities="cities" />
   </div>
 </template>
 
@@ -66,7 +68,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Home page description'
+        content: 'Wij maken het makkelijk om het perfecte terras te vinden in jouw stad! Bekijk waar je lekkere bitterballen kan eten en welke plekken je beter kan mijden.'
       }
     ]
   },

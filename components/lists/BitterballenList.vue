@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
     <RouterLink
       v-for="bitterbal of bitterballen"
       :key="bitterbal.id"
@@ -16,7 +16,7 @@
 
       <div class="bg-inherit w-full absolute bottom-0 left-0 p-4 overflow-hidden">
         <h2 class="font-bold">{{ bitterbal.name }}</h2>
-        <p class="text-xs text-gray-600">{{ bitterbal.amount }} stuks / &euro;{{ Math.round(bitterbal.price * 100) / 100 }}</p>
+        <p class="text-xs text-gray-800">{{ bitterbal.amount }} stuks / &euro;{{ Math.round(bitterbal.price * 100) / 100 }}</p>
       </div>
     </RouterLink>
   </div>

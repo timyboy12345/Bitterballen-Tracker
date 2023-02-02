@@ -1,5 +1,5 @@
 <template>
-  <div class="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+  <div class="grid gap-4 md:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
     <RouterLink
       v-for="restaurant of restaurants"
       :key="restaurant.id"
@@ -16,7 +16,7 @@
 
       <div class="bg-inherit w-full absolute bottom-0 left-0 p-4 overflow-hidden">
         <h2 class="font-bold">{{ restaurant.name }}</h2>
-        <p class="text-xs text-gray-600">{{ restaurant.description }}</p>
+        <p class="text-xs text-gray-800">{{ restaurant.description }}</p>
       </div>
     </RouterLink>
   </div>

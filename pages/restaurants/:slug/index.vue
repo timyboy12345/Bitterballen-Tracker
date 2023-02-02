@@ -80,6 +80,18 @@ export default {
   created() {
     this.$store.commit('meta/setPreviousText', 'Terug naar alle restaurants');
     this.$store.commit('meta/setPreviousLink', '/restaurants');
-  }
+  },
+  head() {
+    return {
+      title: this.restaurant ? this.restaurant.name : 'Restaurant',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.restaurant ? this.restaurant.description : null
+        }
+      ]
+    }
+  },
 }
 </script>

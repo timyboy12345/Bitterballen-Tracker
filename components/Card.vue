@@ -9,8 +9,12 @@
     <div v-if="hideImage !== true" class="-z-1 w-full h-full bg-gray-300"></div>
 
     <div class="bg-inherit w-full bottom-0 left-0 p-4 overflow-hidden" :class="{'absolute': hideImage !== true}">
-      <h2 class="font-bold">{{ title }}</h2>
-      <p class="text-xs text-gray-600" v-if="content">{{ content }}</p>
+      <slot name="title">
+        <h2 class="font-bold">{{ title }}</h2>
+      </slot>
+      <slot name="content">
+        <p class="text-xs text-gray-800" v-if="content">{{ content }}</p>
+      </slot>
     </div>
   </component>
 </template>

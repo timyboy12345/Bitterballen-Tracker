@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
     <RouterLink
       v-for="city of cities"
       :key="city.id"
@@ -16,7 +16,7 @@
 
       <div class="bg-inherit w-full absolute bottom-0 left-0 p-4 overflow-hidden">
         <h2 class="font-bold">{{ city.name }}</h2>
-        <p class="text-xs text-gray-600">{{ city.description }}</p>
+        <p class="text-xs text-gray-800">{{ city.catchphrase }}</p>
       </div>
     </RouterLink>
   </div>

@@ -5,10 +5,9 @@
         <RouterLink to="/" class="font-bold">BitterBallen</RouterLink>
 
         <div class="flex flex-row gap-x-4">
+          <RouterLink to="/cities">Steden</RouterLink>
           <RouterLink to="/restaurants/map">Kaart</RouterLink>
           <RouterLink to="/restaurants">Restaurants</RouterLink>
-          <!--        <RouterLink to="/blog">Blog</RouterLink>-->
-          <!--        <RouterLink to="/brands">Merken</RouterLink>-->
         </div>
       </div>
 
@@ -19,8 +18,12 @@
       </div>
     </div>
 
-    <div class="mx-4 sm:mx-8 md:max-w-2xl md:mx-auto lg:max-w-3xl xl:max-w-4xl mt-8 mb-8">
-      <Nuxt keep-alive/>
+    <div class="mx-4 sm:mx-8 md:max-w-2xl md:mx-auto lg:max-w-3xl xl:max-w-4xl mt-2 md:mt-4 lg:mt-8 mb-8">
+      <Nuxt/>
+    </div>
+
+    <div class="mt-8 p-4 text-gray-600">
+      Gemaakt met ❤️ door Tim - <a target="_blank" class="underline text-gray-700" href="https://arendz.nl/?utm_source=bitterballen&utm_medium=backlink">Arendz.nl</a>
     </div>
   </div>
 </template>

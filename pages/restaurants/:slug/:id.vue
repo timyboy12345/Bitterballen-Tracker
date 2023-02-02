@@ -1,33 +1,42 @@
 <template>
   <div v-if="restaurant && bitterbal">
-    <div class="grid md:grid-cols-2 gap-4">
-      <!--      <Card-->
-      <!--        :image="restaurant.image ? `https://nprukzcs.directus.app/assets/${restaurant.image}` : null"-->
-      <!--        :title="restaurant.name"-->
-      <!--        :content="restaurant.description"-->
-      <!--        :href="`/restaurants/${restaurant.slug}`"-->
-      <!--      ></Card>-->
-      <Card
-        :image="restaurant.image ? `https://nprukzcs.directus.app/assets/${restaurant.image}` : null"
-        :title="restaurant.name"
-        :content="restaurant.description"
-      ></Card>
+    <img
+      v-if="bitterbal.image"
+      alt="Image for "
+      class="mx-auto rounded shadow max-h-96 max-w-full object-contain mb-8"
+      :src="`https://nprukzcs.directus.app/assets/${bitterbal.image}`"
+    >
 
+    <h1 class="text-xl font-bold">{{ bitterbal.name }}</h1>
+    <p class="text-gray-800">
+      Verkrijgbaar bij {{ restaurant.name }} / {{ bitterbal.checkins.length }}x beoordeeld
+    </p>
+
+    <h2 class="text-lg text-yellow-900 font-bold mt-8">Ratings</h2>
+    <div class="grid gap-4 mt-2">
       <Card
-        :image="bitterbal.image ? `https://nprukzcs.directus.app/assets/${bitterbal.image}` : null"
-        :title="bitterbal.name"
-        :content="`${bitterbal.amount} stuks / ${Math.round(bitterbal.price * 100) / 100} euro`"
-      ></Card>
+        v-for="checkin of bitterbal.checkins"
+        :key="checkin.id"
+        :title="checkin.date_created | parseDate"
+        :hide-image="true"
+      >
+        <template #content>
+          <div class="grid lg:grid-cols-4 text-gray-800 gap-4">
+            <div class="grid grid-cols-2 lg:grid-cols-1 gap-2">
+              <div>
+                <h3 class="text-sm text-gray-600">Krokantheid</h3>
+                <div class="text-gray-800">{{ checkin.crispyness + 3 }} / 5</div>
+              </div>
+              <div>
+                <h3 class="text-sm text-gray-600">Warm of koud</h3>
+                <div class="text-gray-800">{{ checkin.crispyness + 3 }} / 5</div>
+              </div>
+            </div>
+            <div class="lg:col-span-3">{{ checkin.content }}</div>
+          </div>
+        </template>
+      </Card>
     </div>
-
-    <Card
-      class="my-8"
-      v-for="checkin of bitterbal.checkins"
-      :key="checkin.id"
-      :content="checkin.content"
-      :title="Date(checkin.date_created).toLocaleLowerCase()"
-      :hide-image="true"
-    ></Card>
   </div>
 
   <div v-else>
@@ -78,10 +87,24 @@ export default {
     }
   },
   watch: {
-    restaurant(newValue) {
-      this.$store.commit('meta/setPreviousText', 'Terug naar ' + newValue.name);
-      this.$store.commit('meta/setPreviousLink', '/restaurants/' + newValue.slug);
+    restaurant(newValue, oldValue) {
+      if (newValue && newValue !== oldValue) {
+        this.$store.commit('meta/setPreviousText', 'Terug naar ' + newValue.name);
+        this.$store.commit('meta/setPreviousLink', '/restaurants/' + newValue.slug);
+      }
     }
-  }
+  },
+  head() {
+    return {
+      title: this.restaurant && this.bitterbal ? `${this.bitterbal.name} bij ${this.restaurant.name}` : 'Restaurant',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.restaurant && this.bitterbal ? `Bekijk alle recensies van ${this.bitterbal.name} bij ${this.restaurant.name}.` : null
+        }
+      ]
+    }
+  },
 }
 </script>
