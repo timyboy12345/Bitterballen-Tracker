@@ -1,8 +1,13 @@
+// eslint-disable-next-line nuxt/no-cjs-in-config
+const axios = require('axios')
+
 export default {
+  target: 'static',
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Bitterballen Terrassen',
-    titleTemplate: '%s - Bitterballen Terrassen',
+    title: 'BitterballenCultuur',
+    titleTemplate: '%s - BitterballenCultuur',
     htmlAttrs: {
       lang: 'en'
     },
@@ -40,10 +45,42 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/content',
     'nuxt-leaflet',
+    '@nuxtjs/sitemap',
   ],
 
   axios: {
     baseURL: 'https://nprukzcs.directus.app',
+  },
+
+  sitemap: {
+    hostname: 'https://bitterballencultuur.nl',
+    gzip: true,
+    exclude: [
+      '/admin/**'
+    ],
+    routes: async() => {
+      const routes = [];
+
+      const { data: citiesData } = await axios.get('https://nprukzcs.directus.app/items/cities')
+      citiesData.data.forEach((city) => {
+        routes.push({
+          url: `/cities/${city.slug}`,
+          priority: 0.8,
+          changefreq: 'weekly',
+        })
+      })
+
+      const { data: restaurantsData } = await axios.get('https://nprukzcs.directus.app/items/restaurants')
+      restaurantsData.data.forEach((city) => {
+        routes.push({
+          url: `/restaurants/${city.slug}`,
+          priority: 0.8,
+          changefreq: 'monthly',
+        })
+      })
+
+      return routes;
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

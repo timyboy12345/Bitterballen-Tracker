@@ -2,9 +2,9 @@
   <div v-if="city">
     <img
       v-if="city.image"
+      :src="`https://nprukzcs.directus.app/assets/${city.image}`"
       alt="Image for "
       class="mx-auto rounded shadow max-h-96 max-w-full object-contain mb-8"
-      :src="`https://nprukzcs.directus.app/assets/${city.image}`"
     >
 
     <h1 class="text-xl font-bold">{{ city.name }}</h1>
@@ -13,10 +13,17 @@
     </article>
 
     <RestaurantsList
-      class="my-8"
-      v-if="city.restaurants"
+      v-if="city.restaurants.length > 0"
       :restaurants="city.restaurants"
+      class="my-8"
     />
+
+    <Alert
+      v-else
+      class="my-8"
+      content="Er zijn geen restaurants gevonden voor deze stad"
+      title="Geen restaurants gevonden"
+    ></Alert>
   </div>
 
   <div v-else>
@@ -26,11 +33,12 @@
 
 <script>
 import Loader from '~/components/Loader';
+import Alert from '~/components/Alert';
 import RestaurantsList from '~/components/lists/RestaurantsList';
 
 export default {
   name: 'CitiesShow',
-  components: {Loader, RestaurantsList},
+  components: {Loader, Alert, RestaurantsList},
   data() {
     return {
       city: null

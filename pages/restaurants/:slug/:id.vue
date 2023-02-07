@@ -9,43 +9,60 @@
 
     <h1 class="text-xl font-bold">{{ bitterbal.name }}</h1>
     <p class="text-gray-800">
-      Verkrijgbaar bij {{ restaurant.name }} / {{ bitterbal.checkins.length }}x beoordeeld
+      Verkrijgbaar bij
+      <RouterLink class="underline" :to="`/restaurants/${restaurant.slug}`">{{ restaurant.name }}</RouterLink>
+      / {{ bitterbal.checkins.length }}x beoordeeld
     </p>
 
-    <h2 class="text-lg text-yellow-900 font-bold mt-8">Ratings</h2>
-    <div class="grid gap-4 mt-2">
-      <Card
-        v-for="checkin of bitterbal.checkins"
-        :key="checkin.id"
-        :title="checkin.date_created | parseDate"
-        :hide-image="true"
-      >
-        <template #content>
-          <div class="grid lg:grid-cols-4 text-gray-800 gap-4">
-            <div class="grid grid-cols-2 lg:grid-cols-1 gap-2">
-              <div>
-                <h3 class="text-sm text-gray-600">Krokantheid</h3>
-                <div class="text-gray-800">{{ checkin.crispyness + 3 }} / 5</div>
+    <p v-if="bitterbal.description" class="my-4 text-sm text-gray-600">
+      {{ bitterbal.description }}
+    </p>
+
+    <Alert
+      v-if="bitterbal && bitterbal.checkins.length === 0"
+      title="Nog geen reviews ontvangen"
+      content="Dit gerecht is nog nooit door ons beoordeeld."
+      class="my-8"
+    ></Alert>
+
+    <div v-else class="my-8">
+      <h2 class="text-lg text-yellow-900 font-bold">Ratings</h2>
+
+      <div class="grid gap-4 mt-2">
+        <Card
+          v-for="checkin of bitterbal.checkins"
+          :key="checkin.id"
+          :title="checkin.date_created | parseDate"
+          :hide-image="true"
+        >
+          <template #content>
+            <div class="grid lg:grid-cols-4 text-gray-800 gap-4">
+              <div class="grid grid-cols-2 lg:grid-cols-1 gap-2">
+                <div>
+                  <h3 class="text-sm text-gray-600">Krokantheid</h3>
+                  <div class="text-gray-800">{{ checkin.crispyness + 3 }} / 5</div>
+                </div>
+                <div>
+                  <h3 class="text-sm text-gray-600">Warm of koud</h3>
+                  <div class="text-gray-800">{{ checkin.crispyness + 3 }} / 5</div>
+                </div>
               </div>
-              <div>
-                <h3 class="text-sm text-gray-600">Warm of koud</h3>
-                <div class="text-gray-800">{{ checkin.crispyness + 3 }} / 5</div>
-              </div>
+              <div class="lg:col-span-3">{{ checkin.content }}</div>
             </div>
-            <div class="lg:col-span-3">{{ checkin.content }}</div>
-          </div>
-        </template>
-      </Card>
+          </template>
+        </Card>
+      </div>
     </div>
   </div>
 
   <div v-else>
-    <Loader text="Alle bittergarnituur van dit restaurant wordt opgehaald"></Loader>
+    <Loader text="Geselecteerde bittergarnituur wordt opgehaald"></Loader>
   </div>
 </template>
 
 <script>
 import Loader from '~/components/Loader';
+import Alert from '~/components/Alert';
 
 export default {
   name: 'BitterbalShow',
@@ -55,7 +72,7 @@ export default {
       bitterbal: null
     }
   },
-  components: {Loader},
+  components: {Loader, Alert},
   async fetch() {
     await this.fetchData();
   },

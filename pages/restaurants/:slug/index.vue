@@ -13,13 +13,24 @@
     </article>
 
     <BitterballenList
-      v-if="restaurant && bitterballen"
+      v-if="bitterballen && bitterballen.length > 0"
       :bitterballen="bitterballen"
       :restaurant="restaurant"
       class="my-8"
     />
 
-    <Loader text="Bittergarnituur wordt geladen" class="my-8" v-else />
+    <Alert
+      v-else-if="bitterballen && bitterballen.length === 0"
+      class="my-8"
+      content="Er zijn geen bitterballen gevonden voor dit restaurant"
+      title="Geen bittergarnituur gevonden"
+    ></Alert>
+
+    <Loader
+      text="Bittergarnituur wordt geladen"
+      class="my-8"
+      v-else
+    />
   </div>
 
   <div v-else>
@@ -29,6 +40,7 @@
 
 <script>
 import BitterballenList from "@/components/lists/BitterballenList";
+import Alert from "@/components/Alert";
 
 export default {
   name: 'RestaurantShow',
@@ -38,7 +50,7 @@ export default {
       bitterballen: null
     }
   },
-  components: {BitterballenList},
+  components: {Alert, BitterballenList},
   async fetch() {
     await this.fetchData();
   },
