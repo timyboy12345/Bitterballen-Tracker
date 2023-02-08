@@ -19,7 +19,7 @@
     </p>
 
     <Alert
-      v-if="bitterbal && bitterbal.checkins.length === 0"
+      v-if="bitterbal.checkins.length === 0"
       title="Nog geen reviews ontvangen"
       content="Dit gerecht is nog nooit door ons beoordeeld."
       class="my-8"

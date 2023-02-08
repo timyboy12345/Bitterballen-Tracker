@@ -109,6 +109,11 @@ export default {
     runtime: true // Support `$md()`
   },
 
+  generate: {
+    // Don't fetch all pages in one time, triggering a 429 response from Directus
+    concurrency: 1
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     postcss: {
