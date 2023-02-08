@@ -3,7 +3,7 @@
     <img
       v-if="city.image"
       :src="`https://nprukzcs.directus.app/assets/${city.image}`"
-      alt="Image for "
+      :alt="`Afbeelding van ${city.name}`"
       class="mx-auto rounded shadow max-h-96 max-w-full object-contain mb-8"
     >
 

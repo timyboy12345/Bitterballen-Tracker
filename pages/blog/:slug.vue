@@ -3,7 +3,7 @@
     <img
       v-if="blogPost.image"
       :src="`https://nprukzcs.directus.app/assets/${blogPost.image}`"
-      alt="Image for "
+      alt="Afbeelding voor blogpost"
       class="mx-auto rounded shadow max-h-96 max-w-full object-contain mb-8"
     >
 
@@ -30,7 +30,7 @@
 
           <RouterLink class="overflow-hidden" :to="`/restaurants/${content.item.restaurant.slug}`">
             <img
-              :alt="`Image of ${content.item.restaurant.name}`"
+              :alt="`Afbeelding van ${content.item.restaurant.name}`"
               :src="`https://nprukzcs.directus.app/assets/${content.item.restaurant.image}`"
               class="rounded shadow overflow-hidden"
             />

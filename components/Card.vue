@@ -5,7 +5,7 @@
     :to="href"
     class="relative overflow-hidden rounded shadow bg-white transition duration-100"
   >
-    <img v-if="image && hideImage !== true" :src="image" alt="Image of city">
+    <img v-if="image && hideImage !== true" :src="image">
     <div v-if="hideImage !== true" class="-z-1 w-full h-full bg-gray-300"></div>
 
     <div class="bg-inherit w-full bottom-0 left-0 p-4 overflow-hidden" :class="{'absolute': hideImage !== true}">

@@ -2,9 +2,9 @@
   <div v-if="restaurant && bitterbal">
     <img
       v-if="bitterbal.image"
-      alt="Image for "
-      class="mx-auto rounded shadow max-h-96 max-w-full object-contain mb-8"
+      :alt="`Afbeelding van ${bitterbal.name}`"
       :src="`https://nprukzcs.directus.app/assets/${bitterbal.image}`"
+      class="mx-auto rounded shadow max-h-96 max-w-full object-contain mb-8"
     >
 
     <h1 class="text-xl font-bold">{{ bitterbal.name }}</h1>

@@ -7,8 +7,8 @@
       class="relative h-60 overflow-hidden rounded shadow bg-white hover:bg-gray-100 transition duration-100">
       <img
         v-if="restaurant.image"
-        :src="`https://nprukzcs.directus.app/assets/${restaurant.image}`"
-        alt="Afbeelding van restaurant"
+        :alt="`Afbeelding van ${restaurant.name}`"
+        :src="`https://nprukzcs.directus.app/assets/${restaurant.image}?key=card`"
         class="object-bottom object-cover w-full h-full"
       >
 

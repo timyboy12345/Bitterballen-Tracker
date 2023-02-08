@@ -1,5 +1,5 @@
 <template>
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
     <RouterLink
       v-for="bitterbal of bitterballen"
       :key="bitterbal.id"
@@ -7,8 +7,8 @@
       class="relative h-60 overflow-hidden rounded shadow bg-white hover:bg-gray-100 transition duration-100">
       <img
         v-if="bitterbal.image"
-        :src="`https://nprukzcs.directus.app/assets/${bitterbal.image}`"
-        alt="Afbeelding van bitterbal"
+        :alt="`Afbeelding van ${bitterbal.name}`"
+        :src="`https://nprukzcs.directus.app/assets/${bitterbal.image}?key=card`"
         class="object-bottom object-cover w-full h-full"
       >
 

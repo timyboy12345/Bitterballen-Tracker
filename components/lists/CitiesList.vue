@@ -7,8 +7,8 @@
       class="relative h-60 overflow-hidden rounded shadow bg-white hover:bg-gray-100 transition duration-100">
       <img
         v-if="city.image"
-        :src="`https://nprukzcs.directus.app/assets/${city.image}`"
-        alt="Afbeelding van bitterbal"
+        :src="`https://nprukzcs.directus.app/assets/${city.image}?key=card`"
+        :alt="`Afbeelding van ${city.name}`"
         class="object-bottom object-cover w-full h-full"
       >
 
