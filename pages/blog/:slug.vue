@@ -10,13 +10,33 @@
     <h1 class="text-2xl font-bold">{{ blogPost.title }}</h1>
     <div class="text-xs text-gray-600 mb-2">{{ blogPost.date_created | parseDate }}</div>
 
-    <article v-html="$md.render(this.blogPost.content)" class="prose max-w-none"></article>
+    <div class="grid gap-y-4">
+      <div v-for="content of blogPost.cms_content">
+        <article
+          v-if="content.collection === 'blog_section_text'"
+          class="prose max-w-none"
+          v-html="$md.render(content.item.content)"
+        />
 
-    <div v-if="blogPost.restaurants.length > 0" class="my-8">
-      <h2 class="mb-2 font-bold">Restaurants gekoppeld aan deze blogpost</h2>
-      <RestaurantsList
-        :restaurants="blogPost.restaurants"
-      />
+        <div
+          v-if="content.collection === 'blog_section_restaurant'"
+          class="grid md:grid-cols-3 items-center gap-y-4 md:gap-x-4"
+        >
+          <div class="gap-y-1 md:col-span-2">
+            <h3 class="font-bold text-lg">{{ content.item.restaurant.name }}</h3>
+            <article v-html="$md.render(content.item.content)" class="prose max-w-none"/>
+            <RouterLink class="underline" :to="`/restaurants/${content.item.restaurant.slug}`">Lees meer</RouterLink>
+          </div>
+
+          <RouterLink class="overflow-hidden" :to="`/restaurants/${content.item.restaurant.slug}`">
+            <img
+              :alt="`Image of ${content.item.restaurant.name}`"
+              :src="`https://nprukzcs.directus.app/assets/${content.item.restaurant.image}`"
+              class="rounded shadow overflow-hidden"
+            />
+          </RouterLink>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -60,7 +80,7 @@ export default {
         .$get('https://nprukzcs.directus.app/items/blog_posts', {
           params: {
             'filter[slug][_eq]': this.$route.params.slug,
-            'fields': 'restaurants.*,image,title,content,description,date_created'
+            'fields': 'cms_content.item.*,cms_content.*,cms_content.item.restaurant.*,image,title,content,description,date_created'
           },
         })
         .then((data) => {
