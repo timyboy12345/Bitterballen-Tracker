@@ -2,6 +2,8 @@
 const axios = require('axios')
 
 export default {
+  target: 'static',
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'BitterballenCultuur',
@@ -41,7 +43,6 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-    '@nuxt/content',
     'nuxt-leaflet',
     '@nuxtjs/sitemap',
     '@nuxtjs/sentry',
