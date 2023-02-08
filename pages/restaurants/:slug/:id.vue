@@ -47,7 +47,7 @@
                   <div class="text-gray-800">{{ checkin.crispyness + 3 }} / 5</div>
                 </div>
               </div>
-              <div class="lg:col-span-3">{{ checkin.content }}</div>
+              <div class="lg:col-span-3 prose max-w-none" v-html="$md.render(checkin.content)"></div>
             </div>
           </template>
         </Card>

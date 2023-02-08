@@ -25,7 +25,7 @@
 
     <div class="grid lg:grid-cols-2 gap-4 my-8">
       <div>
-        <div class="text-lg text-yellow-900 font-bold">Waarom een bitterballenkaart?</div>
+        <div class="text-lg font-bold">Waarom een bitterballenkaart?</div>
         <p class="text-gray-800 text-sm">
           Je wil naar het terras, wil daar lekker genieten, en krijgt een schaal slappe bitterballen voorgeschoteld. Dat
           wil je natuurlijk niet! Daarom kan je op bovenstaande kaart snel zien welke terrasjes in de door jou gekozen
@@ -34,7 +34,7 @@
       </div>
 
       <div>
-        <div class="text-lg text-yellow-900 font-bold">Ik wil meer weten over een specifieke stad</div>
+        <div class="text-lg font-bold">Ik wil meer weten over een specifieke stad</div>
         <p class="text-gray-800 text-sm">
           Wil je meer weten over de bittergarnituurcultuur in een specifieke stad? Kijk dan eens op onze
           <RouterLink class="underline text-yellow-900" to="/cities">steden-pagina</RouterLink>

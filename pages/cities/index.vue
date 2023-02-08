@@ -10,7 +10,7 @@
 
     <div class="grid lg:grid-cols-2 gap-4 my-8">
       <div>
-        <div class="text-lg text-yellow-900 font-bold">Wat maakt een stad de perfecte bittergarnituurstad?</div>
+        <div class="text-lg font-bold">Wat maakt een stad de perfecte bittergarnituurstad?</div>
         <p class="text-gray-800 text-sm">
           Vaak ga je borrelen in de stad waar je al bent, maar als je een dag over hebt is het ook hartstikke leuk om
           een nieuwe stad te ontdekken. Dat kan vaak per trein, bus of fiets, dan kan je ook nog genieten van een
@@ -19,7 +19,7 @@
       </div>
 
 <!--      <div>-->
-<!--        <div class="text-lg text-yellow-900 font-bold">Ik wil meer weten over een specifieke stad</div>-->
+<!--        <div class="text-lg font-bold">Ik wil meer weten over een specifieke stad</div>-->
 <!--        <p class="text-gray-800 text-sm">-->
 <!--          Wil je meer weten over de bittergarnituurcultuur in een specifieke stad? Kijk dan eens op onze-->
 <!--          <RouterLink class="underline text-yellow-900" to="/cities">steden-pagina</RouterLink>-->

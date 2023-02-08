@@ -9,7 +9,7 @@
 
     <div class="grid lg:grid-cols-2 gap-4 my-8">
       <div>
-        <h2 class="text-lg text-yellow-900 font-bold">Wat is belangrijk als ik een restaurant uitzoek?</h2>
+        <h2 class="text-lg font-bold">Wat is belangrijk als ik een restaurant uitzoek?</h2>
         <p class="text-gray-800 text-sm">
           Het uitzoeken van het ideale borrelcafé kan lastig zijn. In onze ervaring moet je gewoon zo veel mogelijk
           plekken proberen en overal iets bestellen om een beeld te krijgen welke horecagelegenheden tijd en aandacht
@@ -20,7 +20,7 @@
       </div>
 
       <div>
-        <h2 class="text-lg text-yellow-900 font-bold">Wat maakt een café perfect?</h2>
+        <h2 class="text-lg font-bold">Wat maakt een café perfect?</h2>
         <p class="text-gray-800 text-sm">
           Iedereen verwacht andere dingen van een café of restaurant. Wij vinden een goede borrelplank ongelofelijk
           belangrijk! Er moeten verschillende hapjes op de kaart staan, zoals bitterballen, vlammetjes of

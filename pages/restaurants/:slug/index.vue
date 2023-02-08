@@ -8,9 +8,7 @@
     >
 
     <h1 class="text-xl font-bold">{{ restaurant.name }}</h1>
-    <article class="prose lg:prose-xl">
-      {{ restaurant.content }}
-    </article>
+    <article class="prose max-w-none" v-html="$md.render(restaurant.content)"></article>
 
     <BitterballenList
       v-if="bitterballen && bitterballen.length > 0"

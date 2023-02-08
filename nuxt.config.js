@@ -2,8 +2,6 @@
 const axios = require('axios')
 
 export default {
-  target: 'static',
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'BitterballenCultuur',
@@ -46,6 +44,8 @@ export default {
     '@nuxt/content',
     'nuxt-leaflet',
     '@nuxtjs/sitemap',
+    '@nuxtjs/sentry',
+    '@nuxtjs/markdownit',
   ],
 
   axios: {
@@ -79,8 +79,34 @@ export default {
         })
       })
 
+      const { data: blogData } = await axios.get('https://nprukzcs.directus.app/items/blog_posts')
+      blogData.data.forEach((blogPost) => {
+        routes.push({
+          url: `/blog/${blogPost.slug}`,
+          priority: 0.7,
+          changefreq: 'never',
+          lastmod: blogPost.date_created
+        })
+      })
+
       return routes;
     }
+  },
+
+  sentry: {
+    dsn: 'https://4af747629e0c49a88cd852fbf699dcf6@o324258.ingest.sentry.io/4504644356014080', // Enter your project's DSN.
+    // Additional Module Options.
+    config: {
+      tracesSampleRate: 1.0,
+      browserTracing: {},
+      vueOptions: {
+        trackComponents: true,
+      },
+    },
+  },
+
+  markdownit: {
+    runtime: true // Support `$md()`
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

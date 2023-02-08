@@ -14,7 +14,7 @@
 
     <div class="grid lg:grid-cols-2 gap-4 my-8">
       <div>
-        <h2 class="text-lg text-yellow-900 font-bold">Waar kan ik het beste bitterballen eten?</h2>
+        <h2 class="text-lg font-bold">Waar kan ik het beste bitterballen eten?</h2>
         <p class="text-gray-800 text-sm">
           De perfecte plek om bitterballen te eten kan lastig te vinden zijn, vandaar dat we je met deze site proberen
           te helpen. Bekijk welke snacks je waar kan eten, wat wij er van vinden en waar je de beste
@@ -23,7 +23,7 @@
       </div>
 
       <div>
-        <h2 class="text-lg text-yellow-900 font-bold">Wat maakt een bitterbal dé bitterbal?</h2>
+        <h2 class="text-lg font-bold">Wat maakt een bitterbal dé bitterbal?</h2>
         <p class="text-gray-800 text-sm">
           Niet elke bitterbal is hetzelfde. Sommige zijn te zacht, andere te hard, anderen hebben bijna geen vulling.
           Een perfecte bitterbal weet alle aspecten van de bitterbal in een perfecte verhouding te brengen.
@@ -31,7 +31,7 @@
       </div>
 
       <div>
-        <h2 class="text-lg text-yellow-900 font-bold">Wat maakt een bitterbal dé bitterbal?</h2>
+        <h2 class="text-lg font-bold">Wat maakt een bitterbal dé bitterbal?</h2>
         <p class="text-gray-800 text-sm">
           Niet elke bitterbal is hetzelfde. Sommige zijn te zacht, andere te hard, anderen hebben bijna geen vulling.
           Een perfecte bitterbal weet alle aspecten van de bitterbal in een perfecte verhouding te brengen.

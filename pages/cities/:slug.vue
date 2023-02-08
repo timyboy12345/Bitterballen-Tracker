@@ -8,9 +8,7 @@
     >
 
     <h1 class="text-xl font-bold">{{ city.name }}</h1>
-    <article class="prose lg:prose-xl">
-      {{ city.content }}
-    </article>
+    <article class="prose max-w-none" v-html="$md.render(city.content)"></article>
 
     <RestaurantsList
       v-if="city.restaurants.length > 0"
@@ -66,6 +64,10 @@ export default {
           return data.data[0];
         });
     }
-  }
+  },
+  created() {
+    this.$store.commit('meta/setPreviousText', 'Terug naar alle steden');
+    this.$store.commit('meta/setPreviousLink', '/cities');
+  },
 }
 </script>
