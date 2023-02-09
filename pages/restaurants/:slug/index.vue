@@ -22,7 +22,7 @@
       class="my-8"
       content="Er zijn geen bitterballen gevonden voor dit restaurant"
       title="Geen bittergarnituur gevonden"
-    ></Alert>
+    />
 
     <Loader
       text="Bittergarnituur wordt geladen"

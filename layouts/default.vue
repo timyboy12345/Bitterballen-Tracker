@@ -12,11 +12,11 @@
         </div>
       </div>
 
-      <div v-if="previousLink && previousText">
+      <client-only v-if="previousLink && previousText">
         <RouterLink class="text-gray-600 text-sm mt-2 block" :to="previousLink">
           < {{ previousText }}
         </RouterLink>
-      </div>
+      </client-only>
     </div>
 
     <div class="mx-4 sm:mx-8 md:max-w-2xl md:mx-auto lg:max-w-3xl xl:max-w-4xl mt-2 md:mt-4 lg:mt-8 mb-8">
