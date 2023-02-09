@@ -20,7 +20,7 @@
 
         <div
           v-if="content.collection === 'blog_section_restaurant'"
-          class="grid md:grid-cols-3 items-center gap-y-4 md:gap-x-4"
+          class="grid md:grid-cols-3 items-center my-8 md:my-4 gap-y-4 md:gap-x-4"
         >
           <div class="gap-y-1 md:col-span-2">
             <h3 class="font-bold text-lg">{{ content.item.restaurant.name }}</h3>
@@ -28,11 +28,11 @@
             <RouterLink class="underline" :to="`/restaurants/${content.item.restaurant.slug}`">Lees meer</RouterLink>
           </div>
 
-          <RouterLink class="overflow-hidden" :to="`/restaurants/${content.item.restaurant.slug}`">
+          <RouterLink class="order-first md:order-last overflow-hidden" :to="`/restaurants/${content.item.restaurant.slug}`">
             <img
               :alt="`Afbeelding van ${content.item.restaurant.name}`"
               :src="`https://nprukzcs.directus.app/assets/${content.item.restaurant.image}`"
-              class="rounded shadow overflow-hidden"
+              class="rounded shadow overflow-hidden mx-auto"
             />
           </RouterLink>
         </div>

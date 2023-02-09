@@ -2,7 +2,7 @@
   <div>
     <div class="w-full left-0 top-0 p-4 lg:px-10 xl:px-20">
       <div class="flex justify-between items-center">
-        <RouterLink to="/" class="font-bold">BitterBallen</RouterLink>
+        <RouterLink to="/" class="font-bold">BitterballenCultuur</RouterLink>
 
         <div class="text-sm sm:text-base flex flex-row gap-x-2 sm:gap-x-4">
           <RouterLink to="/blog">Blog</RouterLink>
