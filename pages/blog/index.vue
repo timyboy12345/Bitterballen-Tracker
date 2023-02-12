@@ -56,8 +56,8 @@ export default {
       })
       .then((data) => {
         return data.data.sort((a, b) => {
-          if (a.name > b.name) return 1;
-          if (a.name < b.name) return -1;
+          if (a.date_created < b.date_created) return 1;
+          if (a.date_created > b.date_created) return -1;
           return 0;
         });
       });
