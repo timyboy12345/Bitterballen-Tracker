@@ -2,6 +2,8 @@
 const axios = require('axios')
 
 export default {
+  target: 'static',
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'BitterballenCultuur',
@@ -51,7 +53,9 @@ export default {
     '@nuxtjs/sitemap',
     '@nuxtjs/sentry',
     '@nuxtjs/markdownit',
-    'nuxt-lazy-load',
+    ['nuxt-lazy-load', {
+      directiveOnly: true,
+    }],
   ],
 
   axios: {
@@ -117,7 +121,7 @@ export default {
 
   generate: {
     // Don't fetch all pages in one time, triggering a 429 response from Directus
-    concurrency: 1
+    concurrency: 2
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
